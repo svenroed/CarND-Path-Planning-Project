@@ -176,6 +176,7 @@ int main() {
           if (prev_size > 0) {
             car_s = end_path_s;
           }
+
           bool too_close = false;
           bool request_lane_change = false;
 
@@ -183,7 +184,6 @@ int main() {
 
           for (int i = 0; i < sensor_fusion.size(); i++) {
             float d = sensor_fusion[i][6];
-
             int check_car_lane = laneForD(d);
 
             double vx = sensor_fusion[i][3];
@@ -195,13 +195,11 @@ int main() {
 
             if (check_car_lane == lane && check_car_s > car_s && check_car_s - car_s < 30) {
               good_lanes[check_car_lane] = false;
-
               too_close = true;
 
               request_lane_change = true;
             } else if (check_car_lane != lane && abs(check_car_s - car_s) < 20) {
               good_lanes[check_car_lane] = false;
-
             }
           }
 
@@ -306,7 +304,6 @@ int main() {
             next_x_vals.push_back(x_point);
             next_y_vals.push_back(y_point);
           }
-
 
           // TODO: define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
           msgJson["next_x"] = next_x_vals;

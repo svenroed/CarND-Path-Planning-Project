@@ -1,6 +1,27 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
-   
+
+## Reflection
+
+### Waypoints
+I have to admit that I followed the guidelines from the walkthrough (https://www.youtube.com/watch?v=3QP3hJHm4WM&feature=youtu.be) on this one. I had different half-working solutions but none was even close as sexy as the "ultimate solution". 
+Besides converting the coordinates to the cars orientation the solution creates reference (helper) points using the given waypoints in different distances which can be used with the spline library to create smooth paths. 
+It's also optimised in the way that it only generates the missing target points and reuses the points left from the previous calculation. 
+By introducing a `ref_vel` variable we can assure smooth acceleration and braking of the vehicle. 
+
+### Planner
+Again, using the base structure from the walkthrough it was quite easy to build a robust solution on top of that which seem to work incredibly good in my tests. 
+I am checking all lanes everytime and check for potential other cars that might cause problems. If the lanes are clear, I can possible perform a lane change if needed. 
+The code checks for enough space and I introduced a method to check for the current lane of a car based on the `d` value. 
+If a lane change is requested I would prefer to change to the left lane, otherwise the right lane but never two lanes at once. 
+If no lane change is possible, the vehicle stays in it's lane and decreases speed. 
+
+### Future work 
+* Use cost functions to choose a better alternative for lane changes
+* Break out some code and create some logic classes
+* Optimse stop and go when required to follow are front car
+* Create a European version that only allows passing on the left and switches back to right lanes if reasonable
+
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases).
 
