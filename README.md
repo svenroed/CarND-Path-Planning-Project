@@ -2,6 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ## Reflection
+![Sample run screenshot](sample_run.png)
 
 ### Waypoints
 I have to admit that I followed the guidelines from the walkthrough (https://www.youtube.com/watch?v=3QP3hJHm4WM&feature=youtu.be) on this one. I had different half-working solutions but none was even close as sexy as the "ultimate solution". 
