@@ -198,7 +198,8 @@ int main() {
               too_close = true;
 
               request_lane_change = true;
-            } else if (check_car_lane != lane && abs(check_car_s - car_s) < 20) {
+            } else if (check_car_lane != lane && abs(check_car_s - car_s) < 15) {
+              // TOOD consider speed of other vehicle, then we can use tigher gaps
               good_lanes[check_car_lane] = false;
             }
           }
@@ -214,7 +215,7 @@ int main() {
               ref_vel -= .224;
             }
           } else if (ref_vel < 49.5) {
-            ref_vel += .224; // 5m/s
+            ref_vel += .222; // 5m/s
           }
 
           vector<double> ptsx;
